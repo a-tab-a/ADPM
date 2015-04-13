@@ -7,13 +7,12 @@ Here you will find implementations of the following:
 * The Weather Translation Model for Ground Delay Program Planning (WTMG)
 * The Baseline model and Models A-D discussed in the above paper
 
-Also included are the trained model parameters for ADPM at San Francisco International and Newark Liberty International airports
+Also included are the trained model parameters for ADPM at San Francisco International and Newark Liberty International airports.
 
-## Get the model
+### Get the model
 Returns an array whose (i,j,k,m) entry is the probability of AAR m at time t+j given AAR k at time t+j-1 and weather forecast i at time t+j, where i=1 is IMC and i=2 is VMC.
 
 ```
-#!text
 
 $ cd model_parameters
 $ julia 
@@ -22,10 +21,9 @@ julia> airport = :SFO
 julia> model = readParams(airport)
 ```
 
-## Layout
+### Layout
 
 ```
-#!text
 
 prediction_models/
     PredictionModels.jl                 Baseline model, models A-D, ADPM
