@@ -30,15 +30,18 @@ prediction_models/
     models.jl                                                    
     weather.jl                          
     normalize.jl                        
+
 wtmg/
     WTMG.jl                             Weather Translation Model for GDP planning
     randomForests.jl
     rfr.py
+
 evaluation/
     CrossValidation.jl                  cross validation module
     scoring.jl                          scoring functions (RMSE, MBS, and RWSE)
+
 model_parameters/
    readParams.jl                        read the model parameters into a Julia array
-   adpm_params_sfo.csv                  ADPM model parameters at SFO
-   adpm_params_ewr.csv                  ADPM model parameters at EWR
+   adpm_params_sfo                      ADPM model parameters at SFO
+   adpm_params_ewr                      ADPM model parameters at EWR
 ```
