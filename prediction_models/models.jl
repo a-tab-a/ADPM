@@ -52,12 +52,12 @@ function weatherAarMM(df::DataFrame)
     return mm::Array
 end
 
-# This function returns the model that defines P(Weather_{t+k}|Forecast_{t+k} for k = 1,...,6
+# This function returns the model that defines P(Forecast_{t+k}|Weather_{t+k} for k = 1,...,6
 function forecastWeatherModel(df::DataFrame)
     mm = zeros(Float64,6,2,2)
     for i = 7:size(df,1)
         for j = 1:size(mm,1)
-            mm[j,VFR(df[symbol("Ceiling_"*string(j))][i-j],df[symbol("Visibility_"*string(j))][i-j]),VFR(df[:Ceiling_0][i],df[:Visibility_0][i])] += 1.
+            mm[j,VFR(df[:Ceiling_0][i],df[:Visibility_0][i]),VFR(df[symbol("Ceiling_"*string(j))][i-j],df[symbol("Visibility_"*string(j))][i-j])] += 1.
         end
     end
     normalize(mm)

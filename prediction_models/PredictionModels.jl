@@ -78,13 +78,17 @@ function getPredictorC(df::DataFrame)
         if opt == :expected
             expected = zeros(Float64,6)
             for i = 1:length(expected)
-                expected[i] = ((reshape(fm[i,VFR(df[symbol("Ceiling_"*string(i))][1],df[symbol("Visibility_"*string(i))][1]),:],1,size(fm,2))*mm)*[0:size(mm,2)-1])[1]
+                dist = reshape(fm[i,:,VFR(df[symbol("Ceiling_"*string(i))][1],df[symbol("Visibility_"*string(i))][1])],1,size(fm,2))*mm
+                normalize(dist)
+                expected[i] = (dist*[0:size(mm,2)-1])[1]
             end
             return expected::Array
         elseif opt == :probs
             probs = zeros(Float64,6,size(mm,2))
             for i = 1:size(probs,1)
-                probs[i,:] = reshape(fm[i,VFR(df[symbol("Ceiling_"*string(i))][1],df[symbol("Visibility_"*string(i))][1]),:],1,size(fm,2))*mm
+                dist = reshape(fm[i,:,VFR(df[symbol("Ceiling_"*string(i))][1],df[symbol("Visibility_"*string(i))][1])],1,size(fm,2))*mm
+                normalize(dist)
+                probs[i,:] = dist
             end
             return probs::Array
         else
