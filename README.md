@@ -1,6 +1,6 @@
 # ADPM
 
-This directory contains models for AAR distribution prediction, and is intended as a supplement to the paper, "Probabilistic Airport Acceptance Rate Prediction" by Jonathan Cox and Mykel J. Kochenderfer, submitted to the 2016 AIAA Modeling and Simulation Technologies Conference.
+This directory contains models for AAR distribution prediction, and is intended as a supplement to the paper, [Probabilistic Airport Acceptance Rate Prediction](http://arc.aiaa.org/doi/abs/10.2514/6.2016-0165) by Jonathan Cox and Mykel J. Kochenderfer, presented at the 2016 AIAA Modeling and Simulation Technologies Conference.
 
 Here you will find implementations of the following:
 * The Airport Acceptance Rate Distribution Prediction Model (ADPM)
